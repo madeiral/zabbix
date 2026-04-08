@@ -1,0 +1,48 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "stat_dashboard",
+    "title": "CPU Load STAT Panel",
+    "timezone": "browser",
+    "panels": [
+      {
+        "type": "stat",
+        "title": "CPU Load",
+        "gridPos": {"x": 0, "y": 0, "w": 6, "h": 4},
+        "datasource": "Zabbix",
+        "targets": [
+          {
+            "group": "",
+            "host": "Seu_Host",
+            "application": "",
+            "item": "system.cpu.load[percpu,avg1]",
+            "refId": "A"
+          }
+        ],
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "center",
+          "orientation": "auto",
+          "textMode": "value"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "decimals": 2,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"color": "green", "value": null},
+                {"color": "orange", "value": 3},
+                {"color": "red", "value": 5}
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "schemaVersion": 36,
+    "version": 1
+  }
+}
