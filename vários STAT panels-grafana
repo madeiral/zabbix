@@ -1,0 +1,39 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "multi_stat_dashboard",
+    "title": "Multi STAT Panels",
+    "timezone": "browser",
+    "panels": [
+      {
+        "type": "stat",
+        "title": "CPU Load",
+        "gridPos": {"x": 0, "y": 0, "w": 6, "h": 4},
+        "datasource": "Zabbix",
+        "targets": [{"host": "Seu_Host", "item": "system.cpu.load[percpu,avg1]", "refId": "A"}],
+        "options": {"colorMode": "value", "graphMode": "none", "justifyMode": "center", "orientation": "auto", "textMode": "value"},
+        "fieldConfig": {"defaults": {"unit": "percent", "decimals": 2, "thresholds": {"mode": "absolute","steps":[{"color":"green","value":null},{"color":"orange","value":3},{"color":"red","value":5}]}}}
+      },
+      {
+        "type": "stat",
+        "title": "Memory Usage",
+        "gridPos": {"x": 6, "y": 0, "w": 6, "h": 4},
+        "datasource": "Zabbix",
+        "targets": [{"host": "Seu_Host", "item": "vm.memory.size[pused]", "refId": "B"}],
+        "options": {"colorMode": "value", "graphMode": "none", "justifyMode": "center", "orientation": "auto", "textMode": "value"},
+        "fieldConfig": {"defaults": {"unit": "percent", "decimals": 2, "thresholds": {"mode":"absolute","steps":[{"color":"green","value":null},{"color":"orange","value":60},{"color":"red","value":80}]}}}
+      },
+      {
+        "type": "stat",
+        "title": "Disk Usage",
+        "gridPos": {"x": 0, "y": 4, "w": 6, "h": 4},
+        "datasource": "Zabbix",
+        "targets": [{"host": "Seu_Host", "item": "vfs.fs.size[/,pused]", "refId": "C"}],
+        "options": {"colorMode": "value", "graphMode": "none", "justifyMode": "center", "orientation": "auto", "textMode": "value"},
+        "fieldConfig": {"defaults": {"unit": "percent", "decimals": 2, "thresholds": {"mode":"absolute","steps":[{"color":"green","value":null},{"color":"orange","value":70},{"color":"red","value":90}]}}}
+      }
+    ],
+    "schemaVersion": 36,
+    "version": 1
+  }
+}
